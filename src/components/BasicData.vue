@@ -104,7 +104,6 @@ export default {
           }else{
             this.noData = true;
           }
-          // this.showData = true;
         },1000);  
       })
       .catch(error=>{
