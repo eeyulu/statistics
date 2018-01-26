@@ -21,15 +21,15 @@
     <group v-if="showData">
       <!-- <cell title="统计日期	" :value=" money.stDate "></cell>  -->
       <!-- <cell title="当前住院人数	" :value="money.inp" is-link link=""></cell>  -->
-      <cell title="当前占床数	" :value="money.bed" is-link link="/inBed"></cell> 
-      <cell title="入院人数	" :value="money.adm" is-link link="/hospital"></cell> 
-      <cell title="出院人数	" :value="money.disCharge" is-link link="/leaveHospital"></cell> 
-      <cell title="当前危重人数	" :value="money.critical" is-link link="/critical"></cell> 
-      <cell title="新增危重人数	" :value="money.criticalNew" is-link link="/newCritical"></cell> 
+      <cell title="当前占床数(实时)" :value="money.bed" is-link link="/inBed"></cell> 
+      <cell title="入院人数" :value="money.adm" is-link link="/hospital"></cell> 
+      <cell title="出院人数" :value="money.disCharge" is-link link="/leaveHospital"></cell> 
+      <cell title="当前危重人数(实时)" :value="money.critical" is-link link="/critical"></cell> 
+      <cell title="新增危重人数" :value="money.criticalNew" is-link link="/newCritical"></cell> 
       <cell title="门诊人数" :value="money.outpNum" is-link link="/outpatient"></cell> 
       <cell title="急诊人数" :value="money.erNum" is-link link="/emergency"></cell> 
       <cell title="手术总人数" :value="money.operNum" is-link link="/operation"></cell> 
-      <cell title="预约手术总人数" :value="money.operNumSche" is-link link="/orderOperation"></cell> 
+      <cell title="当前预约手术总人数(实时)" :value="money.operNumSche" is-link link="/orderOperation"></cell> 
 
       <!-- <cell
       title="手术分类人数"
@@ -104,7 +104,6 @@ export default {
           }else{
             this.noData = true;
           }
-          // this.showData = true;
         },1000);  
       })
       .catch(error=>{
