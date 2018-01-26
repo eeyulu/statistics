@@ -9,29 +9,38 @@
       <calendar @on-change="endDate" v-model="end" title="结束日期" disable-future></calendar>
     </group>
     <div style="padding:15px;">
-      <!-- <x-button  @click.native="queryData()" class="query"   show-loading	 plain disabled>查询</x-button> -->
       <x-button  @click.native="queryData()" class="query">查询</x-button>
     </div>
-    <!-- <group title="切换样式">
-      <radio title="type" v-model="type" :options="['1', '2', '3', '4', '5']"></radio>
-    </group> -->
+
     <div v-if="noData">        
         <load-more :show-loading="false" tip="暂无数据" background-color="#fbf9fe"></load-more>
     </div>
-    <!-- <panel  header="手术列表"  :list="list" :type="type" v-else></panel> -->
 
-
+    
+    <card v-if="showData">
+      <div slot="content" class="card-demo-flex card-demo-content01">
+        <div class="card-header">
+          手术等级
+        </div>
+        <div class="card-header">
+          切口等级
+        </div>
+        <div class="card-header">
+          科室名称 
+        </div>
+      </div>
+	   </card>
     <card :header="{title: to.operName}"  v-for="to in list" v-if="showData">
       <div slot="content" class="card-demo-flex card-demo-content01">
         <div class="vux-1px-r">
           <span  :class="to.operScale=='III级'||to.operScale=='IV级'?classA:classB">{{to.operScale}}</span>
-          <br/>
-          手术等级
+          <!-- <br/>
+          手术等级 -->
         </div>
         <div class="vux-1px-r">
           <span class="classB">{{to.woundGrade}}</span>
-          <br/>
-          切口等级
+          <!-- <br/>
+          切口等级 -->
         </div>
         <div class="vux-1px-r">
           <span class="classB">{{to.deptName}}</span>
@@ -73,6 +82,12 @@
   .query{
     background-color:#35495e;  
     color:white;  
+  }
+
+  .card-header{
+    // color:#999999;
+    font-size: 15px;
+     
   }
 </style>
 
