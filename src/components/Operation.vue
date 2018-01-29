@@ -18,19 +18,19 @@
 
     
     <card v-if="showData">
-      <div slot="content" class="card-demo-flex card-demo-content01">
-        <div class="card-header">
+      <div slot="content" class="header-flex card-demo-content01">
+        <div class="vux-1px-r">
           手术等级
         </div>
-        <div class="card-header">
+        <div class="vux-1px-r">
           切口等级
         </div>
-        <div class="card-header">
-          科室名称 
+        <div class="vux-1px-r">
+          病&nbsp;&nbsp;&nbsp;&nbsp;区 
         </div>
       </div>
 	   </card>
-    <card :header="{title: to.operName}"  v-for="to in list" v-if="showData">
+    <card :header="{title: '• '+to.operName}"  v-for="to in list" v-if="showData">
       <div slot="content" class="card-demo-flex card-demo-content01">
         <div class="vux-1px-r">
           <span  :class="to.operScale=='III级'||to.operScale=='IV级'?classA:classB">{{to.operScale}}</span>
@@ -68,15 +68,16 @@
   .card-demo-flex > div {
     flex: 1;
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .classA{
     color:red;
-    font-size: 150%;
+    font-size: 14px;
   }
-  .classB{
-    color: #1290ff;
+  .classB{    
+    color: #35495e;
+    font-family: 幼圆;
   }
 
   .query{
@@ -84,10 +85,16 @@
     color:white;  
   }
 
-  .card-header{
-    // color:#999999;
-    font-size: 15px;
-     
+  .header-flex {
+    display: flex;
+    align-items:center;
+  }
+
+  .header-flex  > div {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    font-family: 幼圆;
   }
 </style>
 

@@ -9,68 +9,54 @@
       <calendar @on-change="endDate" v-model="end" title="结束日期" disable-future></calendar>
     </group>
     <div style="padding:15px;">
-      <!-- <x-button  @click.native="queryData()" class="query"   show-loading	 plain disabled>查询</x-button> -->
       <x-button  @click.native="queryData()" class="query">查询</x-button>
     </div>
 
     <div v-if="noData">        
         <load-more :show-loading="false" tip="暂无数据" background-color="#fbf9fe"></load-more>
     </div>
-    <!-- <card  :header="{title:to.title}" v-for="to in list"  >
-      <p slot="content" class="card-padding">{{to.desc}}</p>
-    </card> -->
 
-    <card :header="{title: to.operName}"  v-for="to in list" class="head-color" v-if="showData">
-      <div slot="content" class="card-demo-flex card-demo-content01">
+
+    <card v-if="showData">
+      <div slot="content" class="header-flex card-demo-content01">
         <div class="vux-1px-r">
-          <span  :class="to.operScale=='III级'||to.operScale=='IV级'?classA:classB">{{to.operScale}}</span>
-          <br/>
           手术等级
         </div>
         <div class="vux-1px-r">
-          <span class="classB">{{to.bedNo}}</span>
-          <br/>
+          手术者
+        </div>
+        <div class="vux-1px-r">
           患者床位
         </div>
-        <!-- <div class="vux-1px-r">
-          手术室
-          <br/>
-          <span class="classB">{{to.operationRoom}}</span>
-        </div> -->
+        <div class="vux-1px-r">
+          申请科室
+        </div>
+        <div class="vux-1px-r">
+          是否需要隔离 
+        </div>
+      </div>
+	   </card>
+
+    <card :header="{title: '• +to.operName}"  v-for="to in list" class="head-color" v-if="showData">
+      <div slot="content" class="card-demo-flex card-demo-content01">
+        <div class="vux-1px-r">
+          <span  :class="to.operScale=='III级'||to.operScale=='IV级'?classA:classB">{{to.operScale}}</span>
+        </div>
+        <div class="vux-1px-r">
+          <span class="classB">{{to.surgeon}}</span>
+        </div>
+        <div class="vux-1px-r">
+          <span class="classB">{{to.bedNo}}</span>
+        </div>
+        <div class="vux-1px-r">
+          <span class="classB">{{to.deptName}}</span>
+        </div>
         <div class="vux-1px-r">
           <span v-if="to.isOlation=='1'" class="classB">正常</span>
           <span v-else-if="to.isOlation=='2'" class="classB">隔离</span>
           <span v-else-if="to.isOlation=='3'" class="classB">放射</span>
-          <br/>
-          是否需要隔离
+        </div>
 
-        </div>
-        <!-- <div class="vux-1px-r">
-          科室名称
-          <br/>
-          <span class="classB">{{to.bedNo}}</span>
-        </div> -->
-        <div class="vux-1px-r">
-          <span class="classB">{{to.surgeon}}</span>
-          <br/>
-          手术者
-        </div>
-        <!-- <div class="vux-1px-r">
-          麻醉医生
-          <br/>
-          <span class="classB">{{to.anesthesiaDoctor}}</span>
-        </div> -->
-        <!-- <div class="vux-1px-r">
-          手术确认标志
-          <br/>
-          <span v-if="to.ackIndicator=='0'"  class="classB">未确认</span>
-          <span v-else-if="to.ackIndicator=='1'" class="classB">已确认</span>
-        </div> -->
-        <div class="vux-1px-r">
-          <span class="classB">{{to.deptName}}</span>
-          <br/>
-          申请科室
-        </div>
       </div>
 	   </card>
   </div>
@@ -218,22 +204,36 @@ export default {
   .card-demo-flex > div {
     margin-top: 2px;
     margin-bottom: 2px;
-    width: 33.33%;
+    width: 20%;
     text-align: center;
-    font-size: 12px;
+    font-size: 9px;
   }
 
   .classA{
     color:red;
-    font-size: 150%;
+    font-size: 11px;
   }
   .classB{
-    color: #1290ff;
+    color: #35495e;
+    font-family: 幼圆;
   }
 
 
   .query{
     background-color:#35495e;  
     color:white;  
+  }
+
+  .header-flex {
+    display: flex;
+    align-items:center;
+  }
+
+  .header-flex  > div {
+    width: 20%;
+    text-align: center;
+    font-size: 10px;
+    font-family: 幼圆;
+    opacity:0.6;
   }
 </style>
