@@ -37,7 +37,7 @@
       </div>
 	   </card>
 
-    <card :header="{title: '• +to.operName}"  v-for="to in list" class="head-color" v-if="showData">
+    <card :header="{title: '• ' +to.operName}"  v-for="to in list" class="head-color" v-if="showData">
       <div slot="content" class="card-demo-flex card-demo-content01">
         <div class="vux-1px-r">
           <span  :class="to.operScale=='III级'||to.operScale=='IV级'?classA:classB">{{to.operScale}}</span>
