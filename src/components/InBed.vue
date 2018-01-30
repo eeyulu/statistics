@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <x-header>科室占床人数</x-header>
+    <x-header :left-options="{showBack: false}">科室占床人数</x-header>
 
     <group>
       <calendar @on-change="startDate" v-model="start" title="开始日期" disable-future></calendar>
