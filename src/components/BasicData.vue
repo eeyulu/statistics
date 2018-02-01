@@ -141,11 +141,11 @@ export default {
   },
   created:function(){ 
     if(typeof(sessionStorage.startDate)=="undefined"){
-      var date = new Date();
+      var date = new Date(Math.abs(new Date()) - (24 * 60 * 60 * 1000));  
       var seperator1 = "-";
       var year = date.getFullYear();
       var month = date.getMonth() + 1;
-      var strDate = date.getDate() - 1;
+      var strDate = date.getDate();
       if (month >= 1 && month <= 9) {
           month = "0" + month;
       }
