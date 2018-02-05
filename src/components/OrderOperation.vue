@@ -32,7 +32,7 @@
           申请科室
         </div>
         <div class="vux-1px-r">
-          是否需要隔离 
+          是否隔离 
         </div>
       </div>
 	   </card>
@@ -206,16 +206,16 @@ export default {
     margin-bottom: 2px;
     width: 20%;
     text-align: center;
-    font-size: 9px;
+    font-size: 13px;
   }
 
   .classA{
     color:red;
-    font-size: 11px;
+    font-size: 15px;
   }
   .classB{
     color: #35495e;
-    font-family: 幼圆;
+    // font-family: 幼圆;
   }
 
 
@@ -232,8 +232,8 @@ export default {
   .header-flex  > div {
     width: 20%;
     text-align: center;
-    font-size: 10px;
-    font-family: 幼圆;
+    font-size: 14px;
+    // font-family: 幼圆;
     opacity:0.6;
   }
 </style>

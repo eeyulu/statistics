@@ -77,7 +77,7 @@
   }
   .classB{    
     color: #35495e;
-    font-family: 幼圆;
+    // font-family: 幼圆;
   }
 
   .query{
@@ -94,7 +94,7 @@
     flex: 1;
     text-align: center;
     font-size: 12px;
-    font-family: 幼圆;
+    // font-family: 幼圆;
   }
 </style>
 
