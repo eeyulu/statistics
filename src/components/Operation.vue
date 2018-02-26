@@ -68,12 +68,12 @@
   .card-demo-flex > div {
     flex: 1;
     text-align: center;
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .classA{
     color:red;
-    font-size: 14px;
+    font-size: 15px;
   }
   .classB{    
     color: #35495e;
@@ -93,7 +93,7 @@
   .header-flex  > div {
     flex: 1;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     // font-family: 幼圆;
   }
 </style>
