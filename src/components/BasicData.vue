@@ -28,7 +28,7 @@
       <cell title="新增危重人数" :value="money.criticalNew" is-link link="/newCritical"></cell> 
       <cell title="门诊人数" :value="money.outpNum" is-link link="/outpatient"></cell> 
       <cell title="急诊人数" :value="money.erNum" is-link link="/emergency"></cell> 
-      <cell title="手术总人数" :value="money.operNum" is-link link="/operation"></cell> 
+      <cell title="手术总人数" :value="money.operNum" is-link link="/operatSort"></cell> 
       <cell title="当前预约手术总人数(实时)" :value="money.operNumSche" is-link link="/orderOperation"></cell> 
 
       <!-- <cell
