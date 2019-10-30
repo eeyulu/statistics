@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header :left-options="{showBack: false}">科室手术详情</x-header>
+    <x-header :left-options="{showBack: false}" >科室手术详情</x-header>
 
     <group>
       <calendar @on-change="startDate" v-model="start" title="开始日期" disable-future></calendar>
@@ -95,6 +95,10 @@
     text-align: center;
     font-size: 14px;
     // font-family: 幼圆;
+  }
+
+  .space {    
+    margin-bottom: 20px;
   }
 </style>
 
