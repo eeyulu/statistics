@@ -23,7 +23,7 @@ import OperatGrade from './components/OperatGrade'
 import OperatFilter from './components/OperatFilter'
 
 import CardTest from './components/CardTest'
-
+import CallsNumber from './components/CallsNumber'
 
 Vue.use(VueRouter)
 
@@ -71,12 +71,14 @@ const routes = [{
 },{
   path:'/operatFilter/:pattern',
   component:OperatFilter,  
-}
-
-,{
+},{
   path:'/cardTest',
   component:CardTest
-}]
+},{
+  path:'/callsNumber',
+  component:CallsNumber
+}
+]
 
 const router = new VueRouter({
   routes

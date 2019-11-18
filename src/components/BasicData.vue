@@ -30,6 +30,7 @@
       <cell title="急诊人数" :value="money.erNum" is-link link="/emergency"></cell> 
       <cell title="手术总人数" :value="money.operNum" is-link link="/operatSort"></cell> 
       <cell title="当前预约手术总人数(实时)" :value="money.operNumSche" is-link link="/orderOperation"></cell> 
+      <cell title="科室叫号量"  :value="money.callNum" is-link link="/callsNumber"></cell> 
 
       <!-- <cell
       title="手术分类人数"
