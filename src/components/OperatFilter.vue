@@ -29,7 +29,7 @@
           病&nbsp;&nbsp;&nbsp;&nbsp;区 
         </div>
       </div>
-	   </card>
+	   </card>    
     <card :header="{title: '• '+to.operName}"  v-for="to in list" v-if="showData">
       <div slot="content" class="card-demo-flex card-demo-content01">
         <div class="vux-1px-r">
@@ -129,7 +129,8 @@ export default {
       type: '2',
       list: [],
       start:'',
-      end:''
+      end:'',
+      pattern: this.$route.params.pattern
     }
   },
   created:function(){  
@@ -139,7 +140,7 @@ export default {
     this.start = sessionStorage.startDate;
     this.end = sessionStorage.endDate;
 
-    axios.get('/ht_micro_service/his/operation', {
+    axios.get('/ht_micro_service/his/operation/ward?pattern='+this.pattern, {
       params: {
         stStartDate: this.start,
         stEndDate: this.end
@@ -180,7 +181,7 @@ export default {
       this.$vux.loading.show({
         text: '加载中'
       })          
-      axios.get('/ht_micro_service/his/operation', {
+      axios.get('/ht_micro_service/his/operation/ward?pattern='+this.pattern, {
         params: {
           stStartDate: this.start,
           stEndDate: this.end

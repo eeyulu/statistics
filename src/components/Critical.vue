@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <x-header>科室危重人数</x-header>
+    <x-header :left-options="{showBack: false}">科室危重人数</x-header>
 
     <group>
       <calendar @on-change="startDate" v-model="start" title="开始日期" disable-future></calendar>
@@ -16,18 +16,31 @@
     <div v-if="noData"> 
         <load-more :show-loading="false" tip="暂无数据" background-color="#fbf9fe"></load-more>
     </div>
-    <group v-if="showData">  
+    <!-- <group v-if="showData">  
       <cell title="科室名称" value="危重人数(人)"></cell> 
       <cell-form-preview :list="list"  ></cell-form-preview>
-    </group>
-
+    </group> -->
+    <x-table :cell-bordered="false"  class="space" v-if="showData">
+      <thead>
+        <tr style="background-color: #F7F7F7">
+          <th>科室名称</th>
+          <th>危重人数(人)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="to in list">
+          <td>{{to.label}}</td>
+          <td>{{to.value}}</td>
+        </tr>
+      </tbody>
+    </x-table>
   </div>
 
 </template>
 
 
 <script>
-import {LoadMore, LoadingPlugin, Loading, Divider, XHeader, CellFormPreview, Group, Calendar, Cell, Badge, CellBox, XButton } from 'vux'
+import {LoadMore, LoadingPlugin, Loading, Divider, XHeader, CellFormPreview, Group, Calendar, Cell, Badge, CellBox, XButton, XTable } from 'vux'
 import axios from "axios";
 import Vue from 'vue' 
 Vue.use(LoadingPlugin)
@@ -43,7 +56,8 @@ export default {
     Cell,
     Badge,
     CellBox,
-    XButton
+    XButton,
+    XTable
   },
   data () {
     return { 
@@ -130,9 +144,12 @@ export default {
 </script>
 
 <style >
-
   .query{
     background-color:#35495e;  
     color:white;  
+  }
+  .space{
+    background-color:#fff;
+    margin-top: 20px;
   }
 </style>

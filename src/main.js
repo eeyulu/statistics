@@ -18,8 +18,12 @@ import NewCritical from './components/NewCritical'
 import Operation from './components/Operation'
 import OrderOperation from './components/OrderOperation'
 
-import CardTest from './components/CardTest'
+import OperatSort from './components/OperatSort'
+import OperatGrade from './components/OperatGrade'
+import OperatFilter from './components/OperatFilter'
 
+import CardTest from './components/CardTest'
+import CallsNumber from './components/CallsNumber'
 
 Vue.use(VueRouter)
 
@@ -58,12 +62,23 @@ const routes = [{
 },{
   path:'/orderOperation',
   component:OrderOperation
-}
-
-,{
+},{
+  path:'/operatSort',
+  component:OperatSort
+},{
+  path:'/operatGrade/:pattern',
+  component:OperatGrade,  
+},{
+  path:'/operatFilter/:pattern',
+  component:OperatFilter,  
+},{
   path:'/cardTest',
   component:CardTest
-}]
+},{
+  path:'/callsNumber',
+  component:CallsNumber
+}
+]
 
 const router = new VueRouter({
   routes
