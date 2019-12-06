@@ -18,7 +18,7 @@
         <load-more :show-loading="false" tip="暂无数据" background-color="#fbf9fe"></load-more>
     </div>
 
-    <group v-if="showData">
+    <group v-if="showData">      
       <!-- <cell title="统计日期	" :value=" money.stDate "></cell>  -->
       <!-- <cell title="当前住院人数	" :value="money.inp" is-link link=""></cell>  -->
       <cell title="当前占床数(实时)" :value="money.bed" is-link link="/inBed"></cell> 
@@ -31,18 +31,6 @@
       <cell title="手术总人数" :value="money.operNum" is-link link="/operatSort"></cell> 
       <cell title="当前预约手术总人数(实时)" :value="money.operNumSche" is-link link="/orderOperation"></cell> 
       <cell title="科室叫号量"  :value="money.callNum" is-link link="/callsNumber"></cell> 
-
-      <!-- <cell
-      title="手术分类人数"
-      is-link
-      :border-intent="false"
-      :arrow-direction="showContent002 ? 'up' : 'down'"
-      @click.native="showContent002 = !showContent002"></cell>
-
-      <template v-if="showContent002">
-        <cell-form-preview :border-intent="false" :list="list"></cell-form-preview>
-      </template> -->
-
     </group>
 
   </div>

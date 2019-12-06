@@ -17,11 +17,8 @@
     <div v-if="noData">        
         <load-more :show-loading="false" tip="暂无数据" background-color="#fbf9fe"></load-more>
     </div>
-    <!-- <group v-if="showData">  
-      <cell title="科室名称" value="新增人数(人)"></cell> 
-      <cell-form-preview :list="list" ></cell-form-preview>      
-    </group> -->
-    <x-table :cell-bordered="false"  class="space" v-if="showData">
+
+    <!-- <x-table :cell-bordered="false"  class="space" v-if="showData">
       <thead>
         <tr style="background-color: #F7F7F7">
           <th>科室名称</th>
@@ -34,8 +31,18 @@
           <td>{{to.value}}</td>
         </tr>
       </tbody>
-    </x-table>
+    </x-table> -->
+      <group v-if="showData">
+        <div v-for="(to, index) in list" :key="index" class="cellDiv">
+          <cell  :title="to.deptName"  is-link  
+          :arrow-direction="to.arrow ? 'up' : 'down'"
+          @click.native="to.arrow  = !to.arrow "  :value="to.count" v-if="to.count>0"></cell>
 
+          <template v-if="to.arrow">
+            <cell-form-preview  :list="to.List"></cell-form-preview>
+          </template>
+        </div>
+      </group>  
   </div>
 
 </template>
@@ -154,4 +161,22 @@ export default {
     background-color:#fff;
     margin-top: 20px;
   }
+  .cellDiv:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1px solid #D9D9D9;
+    color: #D9D9D9;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    left: 15px;
+  }
+  .cellDiv {
+      position: relative;
+  }  
 </style>
